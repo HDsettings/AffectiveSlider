@@ -66,6 +66,19 @@
 
 </style>
 <script> function loadImage(){
+  var maximum=1;
+  var minimum=0;
+  var rand = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+  if(rand==1){
+    document.getElementById('divSliders').style='float:right; width:50%';
+    document.getElementById('divImage').style='float:left';
+  };
+  var rand2 = Math.floor(Math.random() * (maximum - minimum +1)) + minimum;
+  if (rand2==1){
+    var container=document.getElementById('container');
+    var pleasure=document.getElementById('AScontainer pleasure');
+    container.insertBefore(pleasure, container.firstChild);
+  };
   var path=localStorage.getItem('image')+'.jpg';
   if(localStorage.getItem('image')==null){
     path='0.jpg';
@@ -77,28 +90,30 @@
 </head>
 <body onload="loadImage()">
     <div style="width:100%">
-      <div id="left" style="float:left; width:50%">
+      <div id="divSliders" style="float:left; width:50%">
        <form name="sliders" class="AffectiveSlider">
+
+        <div id="container">
+	  <div id="AScontainer arousal" class="AScontainer arousal">
+	  <input type="range" name="AS-arousal" value="0" min="0" max="1" step=".01" />
+	  <div id="cue1" class="ASintensityCueArousal"></div>
+	  </div>
 	
-	<div class="AScontainer arousal">
-	<input type="range" name="AS-arousal" id="AS-arousal" value="0" min="0" max="1" step=".01" />
-	<div class="ASintensityCueArousal"></div>
+	  <div id="AScontainer pleasure" class="AScontainer pleasure">
+	  <input type="range" name="AS-pleasure" value=".5" min="0" max="1" step=".01" />
+	  <div id="cue2" class="ASintensityCuePleasure"></div>
+	  </div>
 	</div>
-	
-	<div class="AScontainer pleasure">
-	<input type="range" name="AS-pleasure" id="AS-pleasure" value=".5" min="0" max="1" step=".01" />
-	<div class="ASintensityCuePleasure"></div>
-	</div>
-	
+
         <button type="button" onclick="nextImage()">Enviar y pasar a la siguiente imagen</button>
 	</form>
       </div>
 
-      <div id="right" style"float:right">
+      <div id="divImage" style"float:right">
         <img id="testImage" src="0.jpg" />
       </div>
     </div>
-
+    
     <script> function nextImage(){
       var actual=localStorage.getItem('image');
       actual++;
@@ -109,7 +124,4 @@
     </script>
 <body>
 </html>
-
-
-
 
