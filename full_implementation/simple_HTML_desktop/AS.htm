@@ -43,15 +43,26 @@
 		border-color:#000;
 	}
 
-	.ASintensityCue {
+	.ASintensityCueArousal {
 		margin: 0 15px 0 15px;
 		height:48px;
-		background-image: url("images/AS_intensity_cue.png");
+		background-image: url("images/AS_intensity_cue_arousal.png");
 		background-repeat: no-repeat;
 		background-size:100%;
 		background-position: center;
 		
 	}
+
+	.ASintensityCuePleasure {
+		margin: 0 15px 0 15px;
+		height:48px;
+		background-image: url("images/AS_intensity_cue_pleasure.png");
+		background-repeat: no-repeat;
+		background-size:100%;
+		background-position: center;
+		
+	}
+
 
 </style>
 <script> function loadImage(){
@@ -70,13 +81,13 @@
        <form name="sliders" class="AffectiveSlider">
 	
 	<div class="AScontainer arousal">
-	<input type="range" name="AS-arousal" id="AS-arousal" value=".5" min="0" max="1" step=".01" />
-	<div class="ASintensityCue"></div>
+	<input type="range" name="AS-arousal" id="AS-arousal" value="0" min="0" max="1" step=".01" />
+	<div class="ASintensityCueArousal"></div>
 	</div>
 	
 	<div class="AScontainer pleasure">
 	<input type="range" name="AS-pleasure" id="AS-pleasure" value=".5" min="0" max="1" step=".01" />
-	<div class="ASintensityCue"></div>
+	<div class="ASintensityCuePleasure"></div>
 	</div>
 	
         <button type="button" onclick="nextImage()">Enviar y pasar a la siguiente imagen</button>

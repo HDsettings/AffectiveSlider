@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Affective Slider Test</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<style>
+    .inner {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+</style>
+</head>
+  <body>
+  <div style="width:100%">
+    <div class="inner">
+      Mensaje / Instrucciones / Logo-Imagen</br></br></br>
+      <form name="personalData" onsubmit="start()">
+      Nombre
+      <input type="text" name="nameField" id="nametxt" required /></br></br>
+      Apellidos
+      <input type="text" name="surnameField" id="surnametxt" required /></br></br>
+      Sexo
+      <select>
+        <option value="hombre">Hombre</option>
+        <option value="mujer">Mujer</option>
+      </select></br></br>
+      Edad
+      <input type="text" name="ageField" id="agetxt" required /></br></br>
+      <input type="submit" value="Empezar" />
+      </form>
+    </div>
+  </div>
+  <script> function start(){
+    window.location.href="AS.htm";
+  }
+  </script>
+  </body>
+</html>
