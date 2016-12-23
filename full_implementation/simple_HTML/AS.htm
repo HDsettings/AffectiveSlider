@@ -2,13 +2,13 @@
 	<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Affective Slider (AS) Example</title>
+	<title>Affective Slider (AS) Test</title>
 	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
-
+        <script src="images.js"></script>
+        <script src="displayImages.js"></script>
 <style>
 	.AScontainer {
 		margin:2em 0 6em 0;
@@ -76,36 +76,39 @@
   var rand2 = Math.floor(Math.random() * (maximum - minimum +1)) + minimum;
   if (rand2==1){
     var container=document.getElementById('container');
-    var pleasure=document.getElementById('AScontainer pleasure');
+    var pleasure=document.getElementById('container_pleasure');
     container.insertBefore(pleasure, container.firstChild);
   };
-  var path=localStorage.getItem('image')+'.jpg';
-  if(localStorage.getItem('image')==null){
-    path='0.jpg';
-  };
-  document.getElementById('testImage').src=path;
+  document.getElementById('next').innerHTML="Enviar y pasar a la siguiente imagen " + countPhotos();
   return false;
 }
 </script>
 </head>
-<body onload="loadImage()">
+<body onload="loadImage(); displayImage()" >
     <div style="width:100%">
       <div id="divSliders" style="float:left; width:50%">
+      Instrucciones generales aqui</br></br>
        <form name="sliders" class="AffectiveSlider">
 
         <div id="container">
+        <div id="container_arousal">
+        <span id="instruction1">Instruccion arousal</span>
 	  <div id="AScontainer arousal" class="AScontainer arousal">
-	  <input type="range" name="AS-arousal" value="0" min="0" max="1" step=".01" />
-	  <div id="cue1" class="ASintensityCueArousal"></div>
+	    <input type="range" name="AS-arousal" value="0" min="0" max="1" step=".01" />
+	    <div id="cue1" class="ASintensityCueArousal"></div>
 	  </div>
+        </div>
 	
-	  <div id="AScontainer pleasure" class="AScontainer pleasure">
-	  <input type="range" name="AS-pleasure" value=".5" min="0" max="1" step=".01" />
-	  <div id="cue2" class="ASintensityCuePleasure"></div>
+        <div id="container_pleasure">
+        <span id="instruction2">Instruccion pleasure</span>
+	    <div id="AScontainer pleasure" class="AScontainer pleasure">
+	      <input type="range" name="AS-pleasure" value=".5" min="0" max="1" step=".01" />
+	      <div id="cue2" class="ASintensityCuePleasure"></div>
+	    </div>
 	  </div>
-	</div>
+        </div>
 
-        <button type="button" onclick="nextImage()">Enviar y pasar a la siguiente imagen</button>
+        <button type="button" id="next" onclick="nextImage()"></button>
 	</form>
       </div>
 
@@ -115,9 +118,6 @@
     </div>
     
     <script> function nextImage(){
-      var actual=localStorage.getItem('image');
-      actual++;
-      localStorage.setItem('image',actual);
       location.reload();
       return false;
     }
