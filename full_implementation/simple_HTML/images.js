@@ -14,10 +14,10 @@ var imagesArray = ["Alc1A.png", "Alc5A.png", "Cn1A.png", "Cn5A.png", "Coca1A.png
 "N4B.png", "N8B.png"];
 
 if(localStorage.getItem("displayedImagesCount")==null){
-  var displayedImagesCount=1;
+  var displayedImagesCount=0;
+  var displayImagesArray=0;
   localStorage.setItem("displayedImagesCount", displayedImagesCount);
-  var displayedImages={};
-  localStorage.setItem("displayedImages", JSON.stringify(displayedImages));
+  localStorage.setItem("displayImagesArray", displayImagesArray);
   
   for (i = imagesArray.length - 1; i > 0; i -= 1) {
       j = Math.floor(Math.random() * (i + 1))
@@ -29,6 +29,6 @@ if(localStorage.getItem("displayedImagesCount")==null){
 
 } else {
   var displayedImagesCount=localStorage.getItem("displayedImagesCount");
-  var displayedImages=JSON.parse(localStorage.getItem("displayedImages"));
+  var displayImagesArray=localStorage.getItem("displayImagesArray");
   imagesArray=JSON.parse(localStorage.getItem("imagesArray"));
 };
