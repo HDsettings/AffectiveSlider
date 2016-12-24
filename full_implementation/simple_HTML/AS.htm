@@ -5,10 +5,12 @@
 	<title>Affective Slider (AS) Test</title>
 	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script src="images.js"></script>
         <script src="displayImages.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 	.AScontainer {
 		margin:2em 0 6em 0;
@@ -63,6 +65,10 @@
 		
 	}
 
+        .img-fluid {
+           width: 100%;
+           height: auto;
+        }
 
 </style>
 <script> function loadImage(){
@@ -70,8 +76,9 @@
   var minimum=0;
   var rand = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
   if(rand==1){
-    document.getElementById('divSliders').style='float:right; width:50%';
-    document.getElementById('divImage').style='float:left';
+    var row=document.getElementById('row');
+    var image=document.getElementById('divImage');
+    row.insertBefore(image, row.firstChild);
   };
   var rand2 = Math.floor(Math.random() * (maximum - minimum +1)) + minimum;
   if (rand2==1){
@@ -85,8 +92,10 @@
 </script>
 </head>
 <body onload="loadImage(); displayImage()" >
-    <div style="width:100%">
-      <div id="divSliders" style="float:left; width:50%">
+
+  <div class="container-fluid" style="width:100%">
+    <div class="row" id="row">
+      <div id="divSliders" class="col-sm-6">
       Instrucciones generales aqui</br></br>
        <form name="sliders" class="AffectiveSlider">
 
@@ -112,10 +121,11 @@
 	</form>
       </div>
 
-      <div id="divImage" style"float:right">
-        <img id="testImage" src="0.jpg" />
+      <div id="divImage" class="col-sm-6" >
+        <img id="testImage" src="0.jpg" class="img-fluid" />
       </div>
     </div>
+  </div>
     
     <script> function nextImage(){
       location.reload();

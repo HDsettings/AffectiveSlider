@@ -1,4 +1,4 @@
-var examplesArray = ["Ej1A.png", "Ej1.B.png", "Ej2.A.png", "Ej2.B.png", "Ej3.A.png", "Ej3.B.png",
+var examplesArray = ["Ej1.A.png", "Ej1.B.png", "Ej2.A.png", "Ej2.B.png", "Ej3.A.png", "Ej3.B.png",
 "Ej4.A.png", "Ej4.B.png"];
 
 var imagesArray = ["Alc1A.png", "Alc5A.png", "Cn1A.png", "Cn5A.png", "Coca1A.png", "Coca5A.png", 

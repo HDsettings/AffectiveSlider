@@ -14,8 +14,12 @@
     }
 
 </style>
+<script> function clear(){
+  localStorage.clear();
+}
+</script>
 </head>
-  <body>
+  <body onload="localStorage.clear()">
   <div style="width:100%">
     <div class="inner">
       Mensaje / Instrucciones / Logo-Imagen</br></br></br>
@@ -36,7 +40,7 @@
     </div>
   </div>
   <script> function start(){
-    window.location.href="ASe.htm";
+    window.location.href="AS.htm";
   }
   </script>
   </body>
